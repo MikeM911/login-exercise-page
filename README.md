@@ -10,6 +10,8 @@ npm run dev
 yarn dev
 # or
 pnpm dev
+
+Icons required: npm install react-icons --save 
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
