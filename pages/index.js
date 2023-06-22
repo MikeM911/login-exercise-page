@@ -38,6 +38,7 @@ export default function Home() {
       setIsEmailValid(true);
       setIsPasswordValid(true);
       setErrorMessage('');
+      alert("Registration successful")
     }
   };
 
