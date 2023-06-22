@@ -13,6 +13,7 @@ pnpm dev
 
 Icons required: npm install react-icons --save 
 
+docker build command: docker build -t nextjs-app .
 docker running command: docker run -p 3000:3000 nextjs-app
 
 ```
