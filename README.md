@@ -10,6 +10,12 @@ npm run dev
 yarn dev
 # or
 pnpm dev
+
+Icons required: npm install react-icons --save 
+
+docker build command: docker build -t nextjs-app .
+docker running command: docker run -p 3000:3000 nextjs-app
+
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
