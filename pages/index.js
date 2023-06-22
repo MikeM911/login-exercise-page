@@ -28,8 +28,7 @@ export default function Home() {
       setIsPasswordValid(false);
       setErrorMessage('Password is required');
     } else {
-      // Perform authentication logic here
-      // For demonstration purposes, just logging the email and password
+      // Perform authentication
       console.log('Email:', email);
       console.log('Password:', password);
       // Reset form fields and validation
@@ -38,7 +37,6 @@ export default function Home() {
       setIsEmailValid(true);
       setIsPasswordValid(true);
       setErrorMessage('');
-      alert("Registration successful")
     }
   };
 
