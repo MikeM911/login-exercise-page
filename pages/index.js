@@ -24,7 +24,7 @@ export default function Home() {
     e.preventDefault();
     if (!isValidEmail(email)) {
       setIsEmailValid(false);
-      setErrorMessage('Invalid email address');
+      // setErrorMessage('Invalid email address');
     } else if (password.trim() === '') {
       setIsPasswordValid(false);
       setErrorMessage('Password is required');
@@ -91,7 +91,7 @@ export default function Home() {
                     name="email"
                     placeholder="Email"
                     className={`bg-gray-100 outline-none text-sm flex-1 ${
-                      !isEmailValid ? 'focus:bg-red-200' : ''
+                      !isEmailValid ? 'focus:border-red-200' : ''
                     }`}
                     value={email}
                     onChange={handleEmailChange}
