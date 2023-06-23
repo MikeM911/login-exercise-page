@@ -91,7 +91,7 @@ export default function Home() {
                     name="email"
                     placeholder="Email"
                     className={`bg-gray-100 outline-none text-sm flex-1 ${
-                      !isEmailValid ? '-red-600' : ''
+                      !isEmailValid ? 'focus:bg-red-200' : ''
                     }`}
                     value={email}
                     onChange={handleEmailChange}
