@@ -18,6 +18,7 @@ export default function Home() {
   const [isEmailValid, setIsEmailValid] = useState(true);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
   const [errorMessage, setErrorMessage] = useState('');
+  const [isValidationSuccessful, setIsValidationSuccessful] = useState(false);
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -37,6 +38,7 @@ export default function Home() {
       setIsEmailValid(true);
       setIsPasswordValid(true);
       setErrorMessage('');
+      setIsValidationSuccessful(true);
     }
   };
 
@@ -66,20 +68,19 @@ export default function Home() {
               </div>
               <p className="text-gray-400 my-3">or use your email account</p>
               <div className="flex flex-col items-center">
-                <div className="bg-gray-100 w-64 p-2 flex items-center mb-3">
+                <div className={`bg-gray-100 w-64 p-2 flex items-center mb-3 ${isEmailValid ? '' : 'border-red-500'}`}>
                   <FaRegEnvelope className="text-gray-400 m-2" />
                   <input
                     type="email"
                     name="email"
                     placeholder="Email"
-                    className={`bg-gray-100 outline-none text-sm flex-1 ${
-                      isEmailValid ? '' : 'border-red-500'
-                    }`}
+                    className="bg-gray-100 outline-none text-sm flex-1"
                     value={email}
                     onChange={(e) => {
                       setEmail(e.target.value);
                       setIsEmailValid(true); // Reset the validity on input change
                       setErrorMessage('');
+                      setIsValidationSuccessful(false);
                     }}
                   />
                 </div>
@@ -98,11 +99,15 @@ export default function Home() {
                       setPassword(e.target.value);
                       setIsPasswordValid(true); // Reset the validity on input change
                       setErrorMessage('');
+                      setIsValidationSuccessful(false);
                     }}
                   />
                 </div>
 
                 {errorMessage && <p className="text-red-500 mb-3">{errorMessage}</p>}
+                {isValidationSuccessful && (
+                  <p className="text-green-500 mb-3">Validation successful!</p>
+                )}
 
                 <div className="flex justify-between w-64 mb-5">
                   <label className="flex items-center text-xs">
@@ -123,8 +128,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          
         </div>
       </main>
     </div>
