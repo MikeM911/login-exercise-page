@@ -75,19 +75,23 @@ export default function Home() {
                 </a>
               </div>
               <p className="text-gray-400 my-3">or use your email account</p>
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center ">
                 <div
                   className={`bg-gray-100 w-64 p-2 flex items-center mb-3 ${
-                    isEmailValid ? '' : 'border-red-600'
+                    isEmailValid ? '' : 'bg-red-300'
                   }`}
                 >
-                  <FaRegEnvelope className={`text-gray-400 m-2 ${!isEmailValid ? 'text-red-600' : ''}`} />
+                  <FaRegEnvelope
+                    className={`text-gray-400 m-2 ${
+                      !isEmailValid ? 'text-red-600 focus:bg-red-600' : ''
+                    }`}
+                  />
                   <input
                     type="email"
                     name="email"
                     placeholder="Email"
                     className={`bg-gray-100 outline-none text-sm flex-1 ${
-                      !isEmailValid ? 'text-red-600' : ''
+                      !isEmailValid ? '-red-600' : ''
                     }`}
                     value={email}
                     onChange={handleEmailChange}
