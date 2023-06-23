@@ -42,6 +42,14 @@ export default function Home() {
     }
   };
 
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    setIsEmailValid(value === '' || isValidEmail(value));
+    setErrorMessage('');
+    setIsValidationSuccessful(false);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
       <Head>
@@ -68,20 +76,21 @@ export default function Home() {
               </div>
               <p className="text-gray-400 my-3">or use your email account</p>
               <div className="flex flex-col items-center">
-                <div className={`bg-gray-100 w-64 p-2 flex items-center mb-3 ${isEmailValid ? '' : 'border-red-500'}`}>
-                  <FaRegEnvelope className="text-gray-400 m-2" />
+                <div
+                  className={`bg-gray-100 w-64 p-2 flex items-center mb-3 ${
+                    isEmailValid ? '' : 'border-red-600'
+                  }`}
+                >
+                  <FaRegEnvelope className={`text-gray-400 m-2 ${!isEmailValid ? 'text-red-600' : ''}`} />
                   <input
                     type="email"
                     name="email"
                     placeholder="Email"
-                    className="bg-gray-100 outline-none text-sm flex-1"
+                    className={`bg-gray-100 outline-none text-sm flex-1 ${
+                      !isEmailValid ? 'text-red-600' : ''
+                    }`}
                     value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                      setIsEmailValid(true); // Reset the validity on input change
-                      setErrorMessage('');
-                      setIsValidationSuccessful(false);
-                    }}
+                    onChange={handleEmailChange}
                   />
                 </div>
 
@@ -97,7 +106,7 @@ export default function Home() {
                     value={password}
                     onChange={(e) => {
                       setPassword(e.target.value);
-                      setIsPasswordValid(true); // Reset the validity on input change
+                      setIsPasswordValid(true);
                       setErrorMessage('');
                       setIsValidationSuccessful(false);
                     }}
