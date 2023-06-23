@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import { FaFacebookF, FaLinkedinIn, FaGoogle, FaRegEnvelope } from 'react-icons/fa';
 import { MdLockOutline } from 'react-icons/md';
 
+
 const inter = Inter({ subsets: ['latin'] });
 
 function isValidEmail(value) {
